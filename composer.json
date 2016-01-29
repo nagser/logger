@@ -1,0 +1,28 @@
+{
+    "name": "nagser/logger",
+    "type": "yii2-extension",
+
+    "description": "This module display logger information from database in GridView interface",
+    "keywords": ["nagser"],
+    "license": "GPL-3.0+",
+    "support": {
+        "source": "https://github.com/nagser/logger"
+    },
+    "authors": [
+        {
+            "name": "NagSer",
+            "email": "tech@eventarium.pro"
+        }
+    ],
+
+    "require": {
+        "yiisoft/yii2": "2.0.6",
+        "nagser/base": "0.1.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "nagser\\logger\\": ""
+        }
+    }
+}
