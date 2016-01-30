@@ -8,17 +8,16 @@ use yii\helpers\ArrayHelper;
 class Bootstrap implements BootstrapInterface {
 
     private $_modelMap = [
-        'LoggerRecord' => 'nagser\logger\models\LoggerRecord',
-        'LoggerSearch' => 'nagser\logger\models\LoggerSearch',
+        'Model' => 'nagser\logger\models\LoggerRecord',
+        'ModelSearch' => 'nagser\logger\models\LoggerSearch',
     ];
-    public $moduleAlias = 'logger';
 
     public function bootstrap($app){
         /**@var Module $module**/
-        $module = $app->getModule('base');
+        $module = $app->getModule('logger');
         $this->_modelMap = ArrayHelper::merge($this->_modelMap, $module->modelMap);
         foreach ($this->_modelMap as $name => $definition) {
-            $class = "nagser\\logger\\models";
+            $class = "nagser\\logger\\models\\" . $name;
             \Yii::$container->set($class, $definition);
             $modelName = is_array($definition) ? $definition['class'] : $definition;
             $module->modelMap[$name] = $modelName;
