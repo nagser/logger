@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\logger;
+namespace nagser\logger;
 
 
-class Module extends \nagser\base\core\Module
+class Module extends \nagser\base\Module
 {
-	public $controllerNamespace = 'app\modules\logger\controllers';
+	public $controllerNamespace = 'nagser\logger\controllers';
 
 	public function init()
 	{

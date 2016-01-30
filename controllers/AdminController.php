@@ -1,12 +1,11 @@
 <?php
 
-namespace app\modules\logger\controllers;
+namespace nagser\logger\controllers;
 
-use app\base\CustomAdminController;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 
-class AdminController extends CustomAdminController
+class AdminController extends \nagser\base\controllers\AdminController
 {
 
     public function behaviors(){

@@ -1,10 +1,8 @@
 <?php
 
-namespace app\modules\logger\models;
+namespace nagser\logger\models;
 
 use Yii;
-use app\base\CustomModel;
-use app\base\models\CustomSearchModel;
 
 /**
  * This is the model class for table "log".
@@ -28,15 +26,6 @@ class LoggerSearch extends LoggerRecord
 			[['id', 'level'], 'integer'],
 			[['category'], 'string'],
 		];
-	}
-
-	/**
-	 * @inheritdoc
-	 */
-	public function scenarios()
-	{
-		// bypass scenarios() implementation in the parent class
-		return CustomModel::scenarios();
 	}
 
 	/**

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\logger\models;
+namespace nagser\logger\models;
 
-use app\base\models\CustomRecordModel as RecordModel;
+use nagser\base\models\Model;
 use Yii;
 
 /**
@@ -15,7 +15,7 @@ use Yii;
  * @property string $prefix
  * @property string $message
  */
-class LoggerRecord extends RecordModel
+class LoggerRecord extends Model
 {
     /**
      * @inheritdoc
