@@ -1,10 +1,10 @@
 <?php
 
-use app\base\widgets\GridView\GridView;
+use nagser\base\widgets\GridView\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $searchModel app\modules\logger\models\LoggerSearch */
-/* @var $model app\modules\logger\models\LoggerModel */
+/* @var $modelSearch nagser\logger\models\LoggerSearch */
+/* @var $model nagser\logger\models\LoggerRecord */
 
 $this->title = Yii::t('logger', 'Logs list');
 $this->params['breadcrumbs'][] = $this->title;
@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="logger-record-index">
 	<?= GridView::widget([
 		'dataProvider' => $dataProvider,
-		'filterModel' => $searchModel,
+		'filterModel' => $modelSearch,
 		'columns' => [
 			[
 				'label' => Yii::t('logger', 'Id'),
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				]
 			],
 			[
-				'class' => \app\base\widgets\ActionColumn\AdminActionColumn::className(),
+				'class' => \nagser\base\widgets\ActionColumn\ActionColumn::className(),
 				'template' => '{view} {delete}',
 				'viewOptions' => ['class' => 'btn btn-sm btn-default jsOpen']
 			],

@@ -33,4 +33,22 @@ class AdminController extends \nagser\base\controllers\AdminController
         ]);
     }
 
+    /**
+     * Геттер для модели
+     * @return string
+     * */
+    protected function getModel()
+    {
+        return ArrayHelper::getValue($this->module->modelMap, 'LoggerModel');
+    }
+
+    /**
+     * Геттер для поисковой модели
+     * @return string
+     * */
+    protected function getModelSearch()
+    {
+        return ArrayHelper::getValue($this->module->modelMap, 'LoggerSearch');
+    }
+
 }

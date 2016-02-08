@@ -8,8 +8,8 @@ use yii\helpers\ArrayHelper;
 class Bootstrap implements BootstrapInterface {
 
     private $_modelMap = [
-        'Model' => 'nagser\logger\models\LoggerRecord',
-        'ModelSearch' => 'nagser\logger\models\LoggerSearch',
+        'LoggerModel' => 'nagser\logger\models\LoggerRecord',
+        'LoggerSearch' => 'nagser\logger\models\LoggerSearch',
     ];
 
     public function bootstrap($app){
@@ -21,6 +21,14 @@ class Bootstrap implements BootstrapInterface {
             \Yii::$container->set($class, $definition);
             $modelName = is_array($definition) ? $definition['class'] : $definition;
             $module->modelMap[$name] = $modelName;
+        }
+        //Загрузка языков
+        if (!isset($app->get('i18n')->translations['logger'])) {
+            $app->get('i18n')->translations['logger'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@app/vendor/nagser/logger/messages',
+                'fileMap' => ['logger' => 'logger.php']
+            ];
         }
     }
 

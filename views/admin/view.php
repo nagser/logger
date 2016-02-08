@@ -1,31 +1,19 @@
 <?php
 
-use app\base\widgets\DetailView\AdminDetailView;
+use nagser\base\widgets\DetailView\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $recordModel app\modules\logger\models\LoggerRecord */
-/* @var $model app\modules\logger\models\LoggerModel*/
-/* @var $loggerModel app\modules\logger\models\LoggerModel */
+/* @var $model nagser\logger\models\LoggerRecord */
 
-$this->title = ucfirst($recordModel->category);
+$this->title = ucfirst($model->category);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('logger', 'Logs list'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 
-<div class="users-record-view">
+<div class="logger-model-view">
 
-<!--	<p>-->
-<!--		--><?//= Html::a(Yii::t('logger', 'Delete log'), ['delete', 'id' => $recordModel->id], [
-//			'class' => 'btn btn-danger jsDialog',
-//			'data-modal-type' => 'confirm',
-//			'data-modal-class' => 'danger',
-//            'data-message' => Yii::t('yii', 'Are you sure you want to delete this item?')
-//		]) ?>
-<!--	</p>-->
-
-	<?= AdminDetailView::widget([
-		'model' => $recordModel,
+	<?= DetailView::widget([
+		'model' => $model,
 		'attributes' => [
             [
                 'label' => Yii::t('logger', 'Id'),
@@ -41,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'label' => Yii::t('logger', 'Log time'),
-                'attribute' => 'level',
+                'attribute' => 'log_time',
                 'format' => 'datetime',
             ],
             [
